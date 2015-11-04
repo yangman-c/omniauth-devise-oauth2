@@ -1,0 +1,23 @@
+development: &defaults
+  sessions:
+    default:
+      database: omniauth_devise_dev
+      hosts:
+        - localhost:27017
+      options:
+  options:
+    raise_not_found_error: false
+    use_activesupport_time_zone: true
+    use_utc: false
+
+test:
+  sessions:
+    default:
+      database: omniauth_devise_test
+      hosts:
+        - localhost:27017
+      options:
+  options:
+    raise_not_found_error: false
+    use_activesupport_time_zone: true
+    use_utc: false
