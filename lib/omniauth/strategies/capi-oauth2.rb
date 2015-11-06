@@ -2,6 +2,8 @@
 # require 'omniauth/strategies/oauth2'
 # require 'addressable/uri'
 # TODO lookup omniauth omniauth-oauth2
+# TODO http://anti-pattern.com/adding-a-new-strategy-to-omniauth
+# TODO 
 require 'omniauth-oauth2'
 
 module OmniAuth
