@@ -1,16 +1,14 @@
 # require 'multi_json'
-require 'omniauth/strategies/oauth2'
+# require 'omniauth/strategies/oauth2'
 # require 'addressable/uri'
+# TODO lookup omniauth omniauth-oauth2
+require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
     class CapiOauth2 < OmniAuth::Strategies::OAuth2
-      BASE_SCOPE_URL = "http://localhost:5000/doc?api=auth"
-      BASE_SCOPES = %w[profile email openid]
-      DEFAULT_SCOPE = "internal"
 
       option :name, 'capi_oauth2'
-      args [:client_id, :client_secret]
 
       option :client_id, '92ca04c9ecdbe1a0781d138a149220ee0a020dd104822e63fd30b6ee7f65325f'
       option :client_secret, '0q29d43L6cmkSUKuSaPU8Jnppkpr5xmTocA6FTLjwAjAch2c2xImys7Hi890ARWl.dist'
@@ -30,7 +28,7 @@ module OmniAuth
         :param_name => 'access_token'
       }
 
-      # uid { access_token.params[:id] }
+      uid { raw_info['id'] }
 
       info do
         {
@@ -47,7 +45,8 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get('/v1/').parsed
+        binding.pry
+        @raw_info ||= access_token.get('/v1/user').parsed
       end
     end
   end

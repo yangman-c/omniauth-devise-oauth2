@@ -240,7 +240,7 @@ Devise.setup do |config|
   # config.omniauth :twitter, "KEY", "SECRET"
   # config.omniauth :linked_in, "KEY", "SECRET"
 
-  config.omniauth :capi
+  # config.omniauth :capi_oauth2
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
